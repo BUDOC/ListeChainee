@@ -33,6 +33,7 @@
             this.BtAffecte = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.BtResultat = new System.Windows.Forms.Button();
+            this.labelCom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox2
@@ -70,11 +71,21 @@
             this.BtResultat.UseVisualStyleBackColor = true;
             this.BtResultat.Click += new System.EventHandler(this.BtResultat_Click);
             // 
+            // labelCom
+            // 
+            this.labelCom.AutoSize = true;
+            this.labelCom.Location = new System.Drawing.Point(25, 188);
+            this.labelCom.Name = "labelCom";
+            this.labelCom.Size = new System.Drawing.Size(68, 13);
+            this.labelCom.TabIndex = 6;
+            this.labelCom.Text = "Commentaire";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 264);
+            this.Controls.Add(this.labelCom);
             this.Controls.Add(this.BtResultat);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.BtAffecte);
@@ -97,6 +108,7 @@
         private System.Windows.Forms.Button BtAffecte;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button BtResultat;
+        private System.Windows.Forms.Label labelCom;
     }
 }
 

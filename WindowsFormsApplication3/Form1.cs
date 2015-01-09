@@ -27,54 +27,51 @@ namespace WindowsFormsApplication3
         private void BtAffecte_Click(object sender, EventArgs e)  // CREATION AFFECTATION DE LA PERSONNE
         {
             if (this.textBox2.Text == "")
-            {
+            {  // si champ de saisie vide alors pas de traitement
                 MessageBox.Show("chaine vide non permise", "oulala", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //P1.SetLeNom("DEBUT");
-                // P1.SetSuivant(null)
             }
             else
-            {
-                string t = this.textBox2.Text;
+            {     // si champ de saisie non vide 
+                string t = this.textBox2.Text; // affecte à la chaine t le contenu du textbox2
                 if (P1 == null)
-                {
-                    P1 = new Person(t, null);
-                    MessageBox.Show("P1 vide");                   
+                {  // si Premier Objet de la liste est null => premiere affectation uniquement
+                    P1 = new Person(t, null); // création de l'objet P1 avec commme nom t (contenu du texbbox) et suivant de typePerson null
+                  //  MessageBox.Show("P1 vide première affectation ");
                 }
                 else
-                {
-                    Person PLast = Person.getLast(this.P1);
-                    Person Pn = new Person(t, null);
-                    PLast.suivant = Pn;
+                {  // si P1 pas null
+                    Person PLast = Person.getLast(this.P1);  // Objet Plast  (de type Person) = objet  retourné comme étant le suivant de l'objet de type Person P1
+                    Person Pn = new Person(t, null); // création d'objet de type Person nommé Pn avec T comme nom et null comme suivant
+                    PLast.suivant = Pn; // suivant de PLast= objet pn créé en ligne précédente
                 }
+                this.labelCom.Text = this.textBox2.Text + " a été créé";
+
             }
         }
 
-      
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.listBox1.Items.Clear();
-
+            this.listBox1.Items.Clear();  //efface la listebox
         }
 
         // public Person a = new Person(null, null);
 
-        public void AfficheList()
+        public void AfficheList() // ajoute les noms des objets dans leur ordre de dépendance (Suivant)
         {
             bool fin = false;
-            var a = this.P1;
-            MessageBox.Show(a.GetLeNom());
+            var a = this.P1; //a = objet de type Person = P1 equivalent a :  var a = P1;
             do
-            {
-                 this.listBox1.Items.Add(a.GetLeNom());            
-                MessageBox.Show(a.GetLeNom());
+            {  // tant que pas fin faire
+                this.listBox1.Items.Add(a.GetLeNom());   // ajoute un item à la listbox : le contenu de nom de l'objet a          
                 if (a.GetSuivant() == null)
-                {
+                { // si suivant = null alors FIN
                     fin = true;
                 }
                 else
-                {
-                    a = a.GetSuivant();
+                {// si suivant différent de  null 
+                    a = a.GetSuivant(); // l'objet a prend la valeur du suivant de cet objet a (Récursivité)
                 }
             }
             while (fin == false);
@@ -82,6 +79,7 @@ namespace WindowsFormsApplication3
 
         private void BtResultat_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Affichage dans la zone liste du premier nom puis de son suivant puis de son suivant...");
             AfficheList();
         }
 

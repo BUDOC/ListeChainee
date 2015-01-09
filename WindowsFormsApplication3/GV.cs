@@ -13,11 +13,12 @@ namespace WindowsFormsApplication3
         public Person suivant;
       
 
-        public Person(string n, Person suivant) //Constructeur
+        public Person(string n, Person suivant) //Constructeur Person = objet ( texte, Objet de type Person)
             {
-            nom = n;}
+                nom = n;                            // affectation de la variable publique "nom" avec le Texte passé en argument
+            }
 
-        public string Qui //methode de construction get et set (a la Camille)
+        public string Qui //methode de construction get et set (à la Camille)
         {
             get { return  nom; }
             set { nom= value; }         
@@ -25,38 +26,37 @@ namespace WindowsFormsApplication3
 
          public void SetLeNom (string LeNom) //contruction du setteur
          {
-             nom = LeNom;
-        }
+             nom = LeNom; // affectation de la variable publique "nom" avec le Texte passé "LeNom" en argument
+            }        
          public void SetSuivant(Person LeSuivant) //contruction du setteur
          {
-             this.suivant  = LeSuivant;
+             this.suivant = LeSuivant; // affectation du suivant (ojet) à l'objet courant de type Person 
          }
          public  Person GetSuivant() //contruction du setteur
          {
-            return  this.suivant;
+            return  this.suivant; // retourne le suivant (type objet Person) de l'objet de type Person courant
          }
          public string GetLeNom () // Construction du getteur
          {
-             return this.nom;
+             return this.nom; // retourne le nom (Texte) de l'objet de type Person courant
          }
-         public static Person getLast(Person P)
+         public static Person getLast(Person P)  // retourne le suivant d'un objet de type Person Passé en argument P
          {
              bool fin = false;
-             var a = P;
+             var a = P; // obet a = objet P passé en paramètre
              do
-             {
-                
-                 if (a.GetSuivant()== null)
+             {                
+                 if (a.GetSuivant()== null)  // si  l'objet A n'a pas de suivant
                  {
-                     fin = true;
+                     fin = true;            // Fin
                  }
                  else
-                 {
-                     a = a.GetSuivant();
+                 {                           // si  l'objet A a un suivant
+                     a = a.GetSuivant();    // l'objet A prend la valeur du suivant de ce même A
                  }
              }
              while (fin == false);
-             return a;
+             return a;                      // retourne l'Objet A
          }
       
     }

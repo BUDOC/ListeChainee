@@ -40,10 +40,11 @@ namespace WindowsFormsApplication3
          {
              return this.nom; // retourne le nom (Texte) de l'objet de type Person courant
          }
-         public static Person getLast(Person P)  // retourne le suivant d'un objet de type Person Passé en argument P
+         public static Person getLast(Person P)  // Fait une itération à partir de l'objet initial P1 jusqu'à trouver l'objet de suivant =null
+             // l'objet dont le suivant est null est retourné
          {
              bool fin = false;
-             var a = P; // obet a = objet P passé en paramètre
+             var a = P; // objet a = objet P passé en paramètre
              do
              {                
                  if (a.GetSuivant()== null)  // si  l'objet A n'a pas de suivant

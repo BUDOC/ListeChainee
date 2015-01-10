@@ -40,9 +40,9 @@ namespace WindowsFormsApplication3
                 }
                 else
                 {  // si P1 pas null
-                    Person PLast = Person.getLast(this.P1);  // Objet Plast  (de type Person) = objet  retourné comme étant le suivant de l'objet de type Person P1
+                    Person PLast = Person.getLast(this.P1);  // Objet Plast  (de type Person) = objet  retourné comme étant le dernier objet (suivant null)
                     Person Pn = new Person(t, null); // création d'objet de type Person nommé Pn avec T comme nom et null comme suivant
-                    PLast.suivant = Pn; // suivant de PLast= objet pn créé en ligne précédente
+                    PLast.suivant = Pn; // le denier objet founi par Plast prend comme suivant l'objet Pn
                 }
                 this.labelCom.Text = this.textBox2.Text + " a été créé";
 
